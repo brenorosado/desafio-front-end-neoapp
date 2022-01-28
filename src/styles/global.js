@@ -8,7 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: #1e1e1e;
-        color: white;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 `;

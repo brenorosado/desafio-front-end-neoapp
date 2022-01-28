@@ -6,10 +6,13 @@ const generateTimeStamp = () => Math.floor(new Date() / 1000);
 export default async (req, res) => {
     let timeStamp = generateTimeStamp();
     const md5hash = CryptoJS.MD5(`${timeStamp}${apiPrivateKey}${apiPublicKey}`);
-    const result = await fetch(`${apiBaseUrl}:443/v1/public/comics?ts=${timeStamp}&apikey=${apiPublicKey}&hash=${md5hash}`);
+
+    const result = await fetch(`${apiBaseUrl}:443/v1/public/comics?dateDescriptor=thisMonth&orderBy=onsaleDate&limit=100&ts=${timeStamp}&apikey=${apiPublicKey}&hash=${md5hash}`)
+        .catch(console.error);
     const json = await result.json();
 
+
     res.status(200).json({
-        list: json
+        comics: json.data.results
     });
 };

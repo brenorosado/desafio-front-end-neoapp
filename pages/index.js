@@ -1,11 +1,26 @@
-import styled from 'styled-components'
+import Comic from "../src/components/Comic";
+import { HomeMain } from "../src/styles/homepage";
 
-const Title = styled.h1`
-  font-size: 50px;
-`;
+const Home = ({ data }) => {
 
-const Home = () => {
-  return (<Title>My page</Title>);
+  return (
+    <HomeMain>
+      {
+        data.comics.map(item => <Comic comic={item}/>)
+      }
+    </HomeMain>
+  );
+};
+
+export async function getServerSideProps() {
+  const res = await fetch('http://localhost:3000/api/comics');
+  const json = await res.json();
+
+  return {
+    props: {
+      data: json
+    }
+  }
 };
 
 export default Home;
