@@ -1,9 +1,9 @@
 import { GlobalStyle } from "../src/styles/global";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import Link from "next/link";
 import NProgress from "nprogress";
 import "../src/styles/nprogress.css";
+import MenuNavBar from "../src/components/MenuNavBar";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -31,10 +31,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <nav>
-        <Link href="/"><a>Home</a></Link>
-        <Link href="/cart"><a>Cart</a></Link>
-      </nav>
+      <MenuNavBar />
       <GlobalStyle />
       <Component {...pageProps} />
     </>

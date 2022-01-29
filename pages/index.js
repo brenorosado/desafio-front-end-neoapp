@@ -1,13 +1,15 @@
 import Comic from "../src/components/Comic";
-import { HomeMain } from "../src/styles/homepage";
+import { HomeMain, HomeSection } from "../src/styles/homepage";
 
 const Home = ({ data }) => {
 
   return (
     <HomeMain>
-      {
-        data.comics.map(item => <Comic comic={item}/>)
-      }
+      <HomeSection>
+        {
+          data.comics.map(item => <Comic comic={item} />)
+        }
+      </HomeSection>
     </HomeMain>
   );
 };

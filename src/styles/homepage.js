@@ -1,9 +1,27 @@
 import styled from "styled-components";
+import media from "./media";
 
 export const HomeMain = styled.main`
     width: 100%;
-    align-self: center;
+    display: flex;
+    justify-content: center;
+`;
+
+export const HomeSection = styled.section`
     display: grid;
-    grid-template-columns: repeat(5, 200px);
+    grid-template-columns: repeat(2, 40%);
+    justify-content: center;
     grid-gap: 25px;
+
+    ${media.tablet`
+        grid-template-columns: repeat(3, 200px)
+    `}
+
+    ${media.desktop`
+        grid-template-columns: repeat(4, 200px);
+    `}
+
+    ${media.widescreen`
+        grid-template-columns: repeat(5, 200px);
+    `}
 `;
