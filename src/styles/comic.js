@@ -2,10 +2,6 @@ import styled, { keyframes } from "styled-components";
 import media from "./media";
 
 const productAnimation = keyframes`
-    0% {
-        transform: translateY(0px);
-    }
-
     100% {
         transform: scale(103%);
     }
@@ -22,6 +18,7 @@ export const ProductArticle = styled.article`
         width: 100%;
         height: 100%;
         cursor: pointer;
+        text-decoration: none;
 
         img {
             width: 100%;
@@ -36,6 +33,7 @@ export const ProductArticle = styled.article`
             font-size: 14px;
             font-family: Arial, sans-serif;
             font-weight: bold;
+            color: black;
             text-align: center;
             padding: 6px 0px;
             

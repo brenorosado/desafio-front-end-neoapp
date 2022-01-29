@@ -40,6 +40,7 @@ export const PaginationContainer = styled.div`
         margin: 0px 10px;
         font-weight: bold;
         font-size: 18px;
+        padding-top: 4px;
         background-color: lightgray;
         border: 1px solid gray;
         border-radius: 5px;
