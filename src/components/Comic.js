@@ -5,7 +5,7 @@ const Comic = ({ comic }) => {
 
     return (
         <ProductArticle key={title}>
-            <a>
+            <a key={title}>
                 <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} />
                 <p>{title}</p>
                 <ComicInformation>

@@ -1,5 +1,15 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import media from "./media";
+
+const productAnimation = keyframes`
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: scale(103%);
+    }
+`;
 
 export const ProductArticle = styled.article`
     width: 100%;
@@ -12,19 +22,26 @@ export const ProductArticle = styled.article`
         justify-content: space-between;
         width: 100%;
         height: 100%;
+        cursor: pointer;
 
         img {
             width: 100%;
             box-shadow: 2px 5px 10px #888888;
+
+            :hover {
+                animation: ${productAnimation} 0.3s ease-out forwards;
+            }
         }
 
         p {
             font-size: 14px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
             text-align: center;
             padding: 6px 0px;
             
             ${media.tablet`
-                font-size: 16px;
+                font-size: 15px;
             `}
         }
     }
@@ -44,10 +61,16 @@ export const ComicInformation = styled.div`
         border-radius: 5px;
         padding: 5px 10px;
         cursor: pointer;
+        box-shadow: inset 0 0 0 0 green;
+        transition: ease-out 0.3s;
 
         ${media.tablet`
             font-size: 13.5px;
         `}
+
+        :hover {
+            box-shadow: inset 150px 0 0 0 green;
+        }
     }
 
     span {
