@@ -1,12 +1,17 @@
+import { useContext } from "react";
 import SingleComicPage from "../../src/components/SingleComicPage";
+import { Context } from "../../src/Context";
 
 const ComicPage = ({ data }) => {
-    const { title, description, pageCount, prices, series, thumbnail, creators } = data[0];
+
+    const { title, description, dates, pageCount, prices, series, thumbnail, creators, format } = data[0];
 
     return (
             <SingleComicPage
                 title={title}
                 description={description}
+                dates={dates}
+                format={format}
                 pageCount={pageCount}
                 prices={prices}
                 series={series}

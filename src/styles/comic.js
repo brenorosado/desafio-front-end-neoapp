@@ -9,14 +9,14 @@ const productAnimation = keyframes`
 
 export const ProductArticle = styled.article`
     width: 100%;
-
-    a {
-        display: flex;
+    display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
         width: 100%;
         height: 100%;
+
+    a {
         cursor: pointer;
         text-decoration: none;
 

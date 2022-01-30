@@ -2,6 +2,7 @@ import styled from "styled-components";
 import media from "./media";
 
 export const HomeMain = styled.main`
+    padding-top: 100px;
     width: 100%;
     display: flex;
     justify-content: center;

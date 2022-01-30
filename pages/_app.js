@@ -1,39 +1,45 @@
 import { GlobalStyle } from "../src/styles/global";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import NProgress from "nprogress";
-import "../src/styles/nprogress.css";
 import MenuNavBar from "../src/components/MenuNavBar";
+import React, { useEffect, useState } from "react";
+import Loading from "../src/components/Loading";
+import { Context } from "../src/Context";
 
 export default function App({ Component, pageProps }) {
+  const [comicsData, setComicsData] = useState(null);
+  const [selectedComic, setSelectedComic] = useState(null);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    const handleStart = (url) => {
-      console.log(`Loading: ${url}`);
-      NProgress.start();
-    };
-
-    const handleStop = () => {
-      NProgress.done();
-    };
-
-    router.events.on("routeChangeStart", () => handleStart);
-    router.events.on("routeChangeComplete", () => handleStop);
-    router.events.on("routerChangeError", () => handleStop);
+    const fetchComicsData = async () => {
+      const res = await fetch('http://localhost:3000/api/comics');
+      const json = await res.json();
   
-    return () => {
-      router.events.off('routeChangeStart', handleStart);
-      router.events.off('routeChangeComplete', handleStop);
-      router.events.off('routeChangeError', handleStop);
+      setComicsData(json);
     };
+  
+    fetchComicsData();
+  }, []);
+    
+  useEffect(() => {
+    const handleStart = () => setLoading(true);
+    const handleStop = () => setLoading(false);
+
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleStop);
+    router.events.on("routerChangeError", handleStop);
   }, [router]);
+
 
   return (
     <>
-      <MenuNavBar />
-      <GlobalStyle />
-      <Component {...pageProps} />
+      <Context.Provider value={{selectedComic, setSelectedComic, comicsData}}>
+        <MenuNavBar />
+        <GlobalStyle />
+        <Component {...pageProps}/>
+      </Context.Provider>
+      { loading && (<Loading/>)}
     </>
   );
 };

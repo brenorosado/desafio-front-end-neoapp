@@ -1,20 +1,24 @@
 import { ProductArticle, ComicInformation } from "../styles/comic";
+import Link from "next/link";
+import { Context } from "../Context";
+import React, { useContext } from "react";
 
 const Comic = ({ comic }) => {
-    let { title, thumbnail, prices } = comic;
-
-    const getRandomPriceForPricelessComics = (minPrice, maxPrice) => (Math.random() * (maxPrice - minPrice) + minPrice).toFixed(2);
+    let { id, title, thumbnail, prices } = comic;
+    const { setSelectedComic } = useContext(Context);
 
     return (
         <ProductArticle key={title}>
-            <a href={`/comic/${comic.id}`} key={title}>
-                <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} />
-                <p>{title}</p>
-                <ComicInformation>
-                    <span>${prices[0].price === 0 ? getRandomPriceForPricelessComics(3.99, 100) : prices[0].price}</span>
-                    <button>Add to Cart</button>
-                </ComicInformation>
-            </a>
+            <Link href={`/comic/${id}`} passHref>
+                <a onClick={() => setSelectedComic(id)}>
+                    <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} />
+                    <p>{title}</p>
+                </a>
+            </Link>
+            <ComicInformation>
+                <span>{prices[0].price ? `$${prices[0].price}` : 'Free'}</span>
+                <button>Add to Cart</button>
+            </ComicInformation>
         </ProductArticle>
     );
 };

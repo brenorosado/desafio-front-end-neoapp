@@ -2,17 +2,17 @@ import styled from "styled-components";
 import media from "./media";
 
 export const MainComicContent = styled.main`
+    padding-top: 100px;
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 100px 10px 0px 10px;
 `;
 
 export const ComicContentSection = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    ${'' /* border: 1px solid black; */}
 
     ${media.tablet`
         width: 80%
@@ -66,7 +66,7 @@ export const ComicInfo = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px 10px 10px 20px;
+    padding-left: 20px;
 
     h1 {
         font-size: 25px;
@@ -78,13 +78,12 @@ export const ComicInfo = styled.div`
 `;
 
 export const BuyInfo = styled.div`
-height: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     width: 100%;
-    ${'' /* border: 1px solid red; */}
 
     span {
         color: green;

@@ -1,6 +1,6 @@
 import { MainComicContent, ComicContentSection, ContentContainer, ComicInfo, BuyInfo } from "../styles/singlecomicpage";
 
-const SingleComicPage = ({ title, description, pageCount, prices, series, thumbnail, creators }) => {
+const SingleComicPage = ({ title, description, dates, format, pageCount, prices, series, thumbnail, creators }) => {
     return (
         <MainComicContent>
             <ComicContentSection>
@@ -8,8 +8,12 @@ const SingleComicPage = ({ title, description, pageCount, prices, series, thumbn
                     <img src={`${thumbnail.path}.${thumbnail.extension}`} />
                     <ComicInfo>
                         <h1>{title}</h1>
+                        <small><strong>Format: </strong>{format}</small>
+                        <small><strong>Published: </strong> {dates[0].date.split("T")[0]}</small>
+                        
+                        
                         <BuyInfo>
-                            <span>${prices[0].price ? prices[0].price : 10}</span>
+                            <span>{prices[0].price ? `$${prices[0].price}` : 'Free'}</span>
                             <button>Add to Cart</button>
                         </BuyInfo>
                     </ComicInfo>
