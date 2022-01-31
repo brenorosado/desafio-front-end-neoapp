@@ -5,19 +5,19 @@ import React, { useContext } from "react";
 
 const Comic = ({ comic }) => {
     let { id, title, thumbnail, prices } = comic;
-    const { setSelectedComic } = useContext(Context);
+    const { cartItems, setCartItems } = useContext(Context);
 
     return (
         <ProductArticle key={title}>
             <Link href={`/comic/${id}`} passHref>
-                <a onClick={() => setSelectedComic(id)}>
+                <a>
                     <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} />
                     <p>{title}</p>
                 </a>
             </Link>
             <ComicInformation>
                 <span>{prices[0].price ? `$${prices[0].price}` : 'Free'}</span>
-                <button>Add to Cart</button>
+                <button onClick={() => cartItems.includes(comic) ? null : setCartItems([...cartItems, comic])}>Add to Cart</button>
             </ComicInformation>
         </ProductArticle>
     );

@@ -1,33 +1,40 @@
 import { useContext } from "react";
 import SingleComicPage from "../../src/components/SingleComicPage";
 import { Context } from "../../src/Context";
+import Loading from "../../src/components/Loading";
 
-const ComicPage = ({ data }) => {
+const ComicPage = ({ id }) => {
+    const { comicsData } = useContext(Context);
+    
+    let comicToShow = null;
+    
+    if (comicsData) {
+        comicsData.comics.map(item => {
+            if (item.id === Number(id)) comicToShow = item;
+        });
 
-    const { title, description, dates, pageCount, prices, series, thumbnail, creators, format } = data[0];
-
-    return (
+        return (
             <SingleComicPage
-                title={title}
-                description={description}
-                dates={dates}
-                format={format}
-                pageCount={pageCount}
-                prices={prices}
-                series={series}
-                thumbnail={thumbnail}
-                creators={creators}
+                title={comicToShow.title}
+                description={comicToShow.description}
+                dates={comicToShow.dates}
+                format={comicToShow.format}
+                pageCount={comicToShow.pageCount}
+                prices={comicToShow.prices}
+                series={comicToShow.series}
+                thumbnail={comicToShow.thumbnail}
+                creators={comicToShow.creators}
             />
-    );
+        );
+    };
+
+    return <Loading />;
 };
 
 export async function getServerSideProps(context) {
-    const res = await fetch(`http://localhost:3000/api/comic/${context.query.id}`);
-    const json = await res.json();
-
     return {
         props: {
-            data: json.info
+            id: context.query.id,
         }
     }
 };

@@ -8,6 +8,7 @@ import { Context } from "../src/Context";
 export default function App({ Component, pageProps }) {
   const [comicsData, setComicsData] = useState(null);
   const [selectedComic, setSelectedComic] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -34,7 +35,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Context.Provider value={{selectedComic, setSelectedComic, comicsData}}>
+      <Context.Provider value={{selectedComic, setSelectedComic, comicsData, cartItems, setCartItems}}>
         <MenuNavBar />
         <GlobalStyle />
         <Component {...pageProps}/>
