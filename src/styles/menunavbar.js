@@ -16,4 +16,8 @@ export const NavBar = styled.nav`
         font-size: 20px;
         padding: 0px 20px;
     }
+
+    span {
+        color: white;
+    }
 `;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "./media";
 
 export const ItemLine = styled.tr`
     td {
@@ -14,6 +15,10 @@ export const ItemLine = styled.tr`
 
         img {
             height: 150px;
+
+            ${media.desktop`
+                height: 174px;
+            `}
         }
     }
 `;

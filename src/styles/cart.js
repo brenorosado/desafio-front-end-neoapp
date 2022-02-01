@@ -24,14 +24,35 @@ export const CartSection = styled.section`
         
         td {
             border: 1px solid lightgray;
-            height: 150px;
+        }
+    }
+`;
+
+export const EmptyCartElement = styled.td`
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    button {
+        background-color: dodgerblue;
+        color: white;
+        padding: 10px;
+        border: none;
+        width: 150px;
+        cursor: pointer;
+
+        :hover {
+            background-color: #4BA6FF;
+            transition: 0.3s;
         }
     }
 `;
 
 export const PaymentSection = styled.section`
     width: 100%;
-    height: 150px;
+    height: 200px;
     margin: 10px;
     padding: 10px;
     border: 1px solid lightgray;
@@ -40,11 +61,29 @@ export const PaymentSection = styled.section`
     justify-content: space-between;
 
     ${media.desktop`
-        width: 20%;
+        width: 25%;
     `}
 
     p {
         font-size: 25px;
+    }
+
+    button {
+        background-color: dodgerblue;
+        color: white;
+        padding: 12px;
+        border: none;
+        cursor: pointer;
+        width: 50%;
+
+        ${media.desktop`
+            width: 100%;
+        `}
+
+        :hover {
+            background-color: #4BA6FF;
+            transition: 0.3s;
+        }
     }
 `;
 
@@ -53,7 +92,7 @@ export const CouponSection = styled.section`
     margin: 10px;
 
     ${media.desktop`
-        width: 61%;
+        width: 66%;
     `}
 
     form {

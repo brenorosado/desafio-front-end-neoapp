@@ -1,8 +1,8 @@
-import { ProductArticle, ComicInformation } from "../styles/comic";
+import { ProductArticle, ComicInformation, AddedMessageContainer } from "../styles/comic";
 import { BsFillStarFill } from 'react-icons/bs';
 import Link from "next/link";
 import { Context } from "../Context";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 const Comic = ({ comic }) => {
     let { id, title, thumbnail, prices, comicType } = comic;
@@ -13,14 +13,17 @@ const Comic = ({ comic }) => {
             <Link href={`/comic/${id}`} passHref>
                 <a>
                     <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} />
-                    <p><strong>{(comicType === 'rare') ? <BsFillStarFill/> : ''} </strong>{title}</p>
+                    <p><strong>{(comicType === 'rare') ? <BsFillStarFill /> : ''} </strong>{title}</p>
                 </a>
             </Link>
             <ComicInformation>
                 <span>{prices[0].price ? `$${prices[0].price}` : 'Free'}</span>
-                <button onClick={() => cartItems.includes(comic) ? null : setCartItems([...cartItems, comic])}>Add to Cart</button>
+                <Link href={`/cart/${id}`}>
+                    <button onClick={() => setCartItems([...cartItems, comic])}>Add to Cart</button>
+                </Link>
             </ComicInformation>
-        </ProductArticle>
+
+        </ProductArticle >
     );
 };
 

@@ -8,3 +8,4 @@ export const COUPONS = {
         discount: 20,
     }
 }
+

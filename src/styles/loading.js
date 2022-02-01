@@ -1,16 +1,33 @@
 import styled from 'styled-components';
+import media from './media';
+
+export const LoaderWrapper = styled.div`
+    height: 80vh;
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ${media.tablet`
+        grid-column: 1 / 4;
+    `}
+
+    ${media.desktop`
+        grid-column: 1 / 5;
+    `}
+
+    ${media.widescreen`
+        grid-column: 1 / 6;
+    `}
+`;
 
 export const LoaderContainer = styled.div`
-    position: fixed;
-    top: 20px;
-    right: 20px;     
     animation: is-rotating 1s infinite;
-    width: 40px;
-    height: 40px;
-    border: 3px solid white;
+    width: 100px;
+    height: 100px;
+    border: 7px solid white;
     border-top-color: dodgerblue;
     border-radius: 50%;
-
 
     @keyframes is-rotating {
         to {

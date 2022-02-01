@@ -10,11 +10,11 @@ const productAnimation = keyframes`
 export const ProductArticle = styled.article`
     width: 100%;
     display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
 
     a {
         cursor: pointer;
@@ -57,20 +57,19 @@ export const ComicInformation = styled.div`
         background-color: dodgerblue;
         color: white;
         font-weight: bold;
-        font-size: 11px;
+        font-size: 12px;
         border: none;
-        border-radius: 5px;
+        border-radius: 3px;
         padding: 5px 10px;
         cursor: pointer;
-        box-shadow: inset 0 0 0 0 green;
-        transition: ease-out 0.3s;
 
         ${media.tablet`
             font-size: 13.5px;
         `}
 
         :hover {
-            box-shadow: inset 150px 0 0 0 green;
+            background-color: #4BA6FF;
+            transition: 0.3s;
         }
     }
 

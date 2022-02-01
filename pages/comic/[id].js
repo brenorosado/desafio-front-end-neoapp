@@ -13,16 +13,13 @@ const ComicPage = ({ id }) => {
             if (item.id === Number(id)) comicToShow = item;
         });
 
-        return (
-            <SingleComicPage comic={comicToShow}
-            />
-        );
+        return <SingleComicPage comic={comicToShow}/>;
     };
 
     return <Loading />;
 };
 
-export async function getServerSideProps(context) {
+export function getServerSideProps(context) {
     return {
         props: {
             id: context.query.id,

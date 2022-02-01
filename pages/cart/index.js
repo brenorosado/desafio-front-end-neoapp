@@ -1,8 +1,9 @@
-import { Context } from "../src/Context";
+import { Context } from "../../src/Context";
 import { useContext, useEffect, useState } from "react";
-import { CartMain, CartSection, PaymentSection, CouponSection, InputField, InputButton } from "../src/styles/cart";
-import CartItem from "../src/components/CartItem";
-import { COUPONS } from "../src/helpers/cupons";
+import { CartMain, CartSection, PaymentSection, CouponSection, InputField, InputButton, EmptyCartElement } from "../../src/styles/cart";
+import CartItem from "../../src/components/CartItem";
+import { COUPONS } from "../../src/helpers/cupons";
+import Link from "next/link";
 
 const Cart = () => {
     const { cartItems } = useContext(Context);
@@ -37,7 +38,9 @@ const Cart = () => {
                                     };
                                 })) : (
                                     <tr>
-                                        <td><h3>Empty cart.</h3></td>
+                                        <EmptyCartElement>
+                                            <h3>Empty cart.</h3>
+                                            <Link href="/"><button>Go shopping</button></Link></EmptyCartElement>
                                     </tr>
                                 )
                         }
@@ -49,6 +52,7 @@ const Cart = () => {
                 <p><strong>Discount: </strong></p>
                 <hr/>
                 <p><strong>Final Price: </strong></p>
+                <button>Buy now</button>
             </PaymentSection>
             <CouponSection>
                 <form onSubmit={handleSubmit}>

@@ -27,7 +27,7 @@ const SingleComicPage = ({ comic }) => {
 
                         <BuyInfo>
                             <span>{prices[0].price ? `$${prices[0].price}` : 'Free'}</span>
-                            <button onClick={() => cartItems.includes(comic) ? null : setCartItems([...cartItems, comic])}>Add to Cart</button>
+                            <button onClick={() => setCartItems([...cartItems, comic])}>Add to Cart</button>
                         </BuyInfo>
                     </ComicInfo>
                 </ContentContainer>

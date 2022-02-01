@@ -1,7 +1,11 @@
-import { LoaderContainer } from "../styles/loading";
+import { LoaderContainer, LoaderWrapper } from "../styles/loading";
 
 const Loading = () => {
-    return <LoaderContainer />
+    return (
+        <LoaderWrapper>
+            <LoaderContainer />
+        </LoaderWrapper>
+    )
 };
 
 export default Loading;
