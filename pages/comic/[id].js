@@ -14,16 +14,7 @@ const ComicPage = ({ id }) => {
         });
 
         return (
-            <SingleComicPage
-                title={comicToShow.title}
-                description={comicToShow.description}
-                dates={comicToShow.dates}
-                format={comicToShow.format}
-                pageCount={comicToShow.pageCount}
-                prices={comicToShow.prices}
-                series={comicToShow.series}
-                thumbnail={comicToShow.thumbnail}
-                creators={comicToShow.creators}
+            <SingleComicPage comic={comicToShow}
             />
         );
     };

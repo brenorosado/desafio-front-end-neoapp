@@ -1,46 +1,53 @@
 import { GlobalStyle } from "../src/styles/global";
-import { useRouter } from "next/router";
 import MenuNavBar from "../src/components/MenuNavBar";
 import React, { useEffect, useState } from "react";
-import Loading from "../src/components/Loading";
 import { Context } from "../src/Context";
+
+export const ITEMS_PER_PAGE = 20;
+export const TOTAL_ITEMS = 100; // Limite de items da requisicao da api
 
 export default function App({ Component, pageProps }) {
   const [comicsData, setComicsData] = useState(null);
   const [selectedComic, setSelectedComic] = useState(null);
   const [cartItems, setCartItems] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     const fetchComicsData = async () => {
       const res = await fetch('http://localhost:3000/api/comics');
       const json = await res.json();
-  
-      setComicsData(json);
+
+      //Gerando HQs raras aleatoriamente
+      let numbers = [];
+
+      while (numbers.length < Math.floor(TOTAL_ITEMS / 10)) {
+        let randomNumber = Math.floor(Math.random() * (TOTAL_ITEMS + 1));
+        (numbers.includes(randomNumber)) ? null : numbers.push(randomNumber);
+      };
+      console.log('numbers', numbers);
+
+      let controlVariable = 0;
+      let aux = json;
+
+      aux.comics.map(item => {
+        const newItem = numbers.includes(controlVariable) ? Object.assign(item, { comicType: 'rare' }) : Object.assign(item, { comicType: 'common' });
+        controlVariable++;
+        return newItem;
+      });
+
+      setComicsData(aux);
     };
-  
+
     fetchComicsData();
   }, []);
-    
-  useEffect(() => {
-    const handleStart = () => setLoading(true);
-    const handleStop = () => setLoading(false);
-
-    router.events.on("routeChangeStart", handleStart);
-    router.events.on("routeChangeComplete", handleStop);
-    router.events.on("routerChangeError", handleStop);
-  }, [router]);
 
 
   return (
     <>
-      <Context.Provider value={{selectedComic, setSelectedComic, comicsData, cartItems, setCartItems}}>
+      <Context.Provider value={{ selectedComic, setSelectedComic, comicsData, setComicsData, cartItems, setCartItems }}>
         <MenuNavBar />
         <GlobalStyle />
-        <Component {...pageProps}/>
+        <Component {...pageProps} />
       </Context.Provider>
-      { loading && (<Loading/>)}
     </>
   );
 };

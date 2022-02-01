@@ -4,6 +4,14 @@ export const ItemLine = styled.tr`
     td {
         padding: 10px;
 
+        h4 {
+            small {
+                font-size: 14px;
+                font-weight: normal;
+                color: ${props => props.rarity};
+            }
+        }
+
         img {
             height: 150px;
         }

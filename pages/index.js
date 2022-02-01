@@ -4,16 +4,14 @@ import Pagination from "../src/components/Pagination";
 import { HomeMain, HomeSection } from "../src/styles/homepage";
 import { Context } from "../src/Context";
 import Loading from "../src/components/Loading";
-
-const ITEMS_PER_PAGE = 20;
-const TOTAL_ITEMS = 100; // Limite de items da requisicao da api
+import { ITEMS_PER_PAGE, TOTAL_ITEMS } from "./_app";
 
 const Home = () => {
   const [offset, setOffset] = useState(0);
   const { comicsData } = useContext(Context);
-
+  
   let comicsToShow = comicsData ? comicsData.comics.slice(offset, offset + ITEMS_PER_PAGE) : null;
-
+  
   return (
     <HomeMain>
       <HomeSection>

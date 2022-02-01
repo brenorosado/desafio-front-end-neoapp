@@ -1,10 +1,11 @@
 import { ProductArticle, ComicInformation } from "../styles/comic";
+import { BsFillStarFill } from 'react-icons/bs';
 import Link from "next/link";
 import { Context } from "../Context";
 import React, { useContext } from "react";
 
 const Comic = ({ comic }) => {
-    let { id, title, thumbnail, prices } = comic;
+    let { id, title, thumbnail, prices, comicType } = comic;
     const { cartItems, setCartItems } = useContext(Context);
 
     return (
@@ -12,7 +13,7 @@ const Comic = ({ comic }) => {
             <Link href={`/comic/${id}`} passHref>
                 <a>
                     <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} />
-                    <p>{title}</p>
+                    <p><strong>{(comicType === 'rare') ? <BsFillStarFill/> : ''} </strong>{title}</p>
                 </a>
             </Link>
             <ComicInformation>

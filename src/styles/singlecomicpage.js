@@ -60,6 +60,14 @@ export const ContentContainer = styled.div`
     }
 `;
 
+export const RarityInfo = styled.strong`
+    font-size: 18px;
+
+    span {
+        color: ${props => props.rarity}
+    }
+`;
+
 export const ComicInfo = styled.div`
     height: 100%;
     display: flex;
@@ -102,8 +110,6 @@ export const BuyInfo = styled.div`
         border-radius: 5px;
         padding: 5px 10px;
         cursor: pointer;
-        box-shadow: inset 0 0 0 0 green;
-        transition: ease-out 0.3s;
 
         ${media.tablet`
             width: 80%;
@@ -118,7 +124,8 @@ export const BuyInfo = styled.div`
         `}
 
         :hover {
-            box-shadow: inset 0 50px 0 0 green;
-        }
+        background-color: #4BA6FF;
+        transition: 0.3s;
+    }
     }
 `;

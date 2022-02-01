@@ -37,6 +37,10 @@ export const ProductArticle = styled.article`
             text-align: center;
             padding: 6px 0px;
             
+            strong {
+                color: gold;
+            }
+
             ${media.tablet`
                 font-size: 15px;
             `}
