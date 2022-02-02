@@ -8,7 +8,11 @@ const Pagination = ({ limit, total, offset, setOffset }) => {
         <PaginationContainer>
             <button onClick={(e) => offset ? setOffset(offset - limit) : setOffset(0)}><BsCaretLeftFill/></button>
             <span>{currentPage}</span>
-            <button onClick={(e) => offset >= (total - limit) ? setOffset(total - limit) : setOffset(offset + limit)}><BsCaretRightFill/></button>
+            <button onClick={(e) => {
+                offset >= (total - limit) ? (
+                    setOffset(total - limit) 
+                ) : setOffset(offset + limit);
+            }}><BsCaretRightFill/></button>
         </PaginationContainer>
     );
 };

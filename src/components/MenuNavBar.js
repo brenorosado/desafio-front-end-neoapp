@@ -1,12 +1,17 @@
 import Link from "next/link";
-import { BsCartFill } from 'react-icons/bs';
+import { BsCartFill, BsPersonFill } from 'react-icons/bs';
 import { NavBar } from "../styles/menunavbar";
 
 const MenuNavBar = () => {
     return (
         <NavBar>
-            <Link href="/"><a>Home</a></Link>
-            <Link href="/cart"><a><BsCartFill /></a></Link>
+            <ul>
+                <li><Link href="/"><a>Home</a></Link></li>
+                <li>
+                    <Link href="/user"><a><BsPersonFill /></a></Link>
+                    <Link href="/cart"><a><BsCartFill /></a></Link>
+                </li>
+            </ul>
         </NavBar>
     )
 };

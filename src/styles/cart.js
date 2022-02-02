@@ -150,6 +150,7 @@ export const PurchaseMadeContainer = styled.div`
     }
 
     button {
+        width: 48%;
         padding: 10px;
         background-color: dodgerblue;
         color: white;
@@ -161,4 +162,10 @@ export const PurchaseMadeContainer = styled.div`
             transition: 0.3s;
         }
     }
+`;
+
+export const ButtonsContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 `;

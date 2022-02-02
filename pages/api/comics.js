@@ -10,6 +10,7 @@ export default async (req, res) => {
     const json = await result.json();
 
     res.status(200).json({
-        comics: json.data.results
+        comics: json.data.results,
+        count: json.data.count
     });
 };
