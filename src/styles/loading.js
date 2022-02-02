@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import media from './media';
 
-export const LoaderWrapper = styled.div`
+export const LoaderWrapper = styled.main`
     height: 80vh;
     grid-column: 1 / 3;
     display: flex;

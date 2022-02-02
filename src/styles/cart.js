@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import media from "./media";
+import { FadeInAnimation } from "../styles/homepage";
 
 export const CartMain = styled.main`
+    animation: ${FadeInAnimation} 0.5s both;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -90,6 +92,9 @@ export const PaymentSection = styled.section`
 export const CouponSection = styled.section`
     width: 100%;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     ${media.desktop`
         width: 66%;
@@ -118,5 +123,42 @@ export const InputButton = styled.input`
     :hover {
         background-color: #4BA6FF;
         transition: 0.3s;
+    }
+`;
+
+export const PurchaseMadeContainer = styled.div`
+    animation: ${FadeInAnimation} 0.5s both;
+    position: relative;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+
+        strong {
+            color: green;
+            font-size: 18px;
+        }
+
+        span {
+            color: #b11313;
+            font-size : 22px;
+        }
+    }
+
+    button {
+        padding: 10px;
+        background-color: dodgerblue;
+        color: white;
+        border: none;
+        cursor: pointer;
+
+        :hover {
+            background-color: #4BA6FF;
+            transition: 0.3s;
+        }
     }
 `;

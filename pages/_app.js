@@ -10,6 +10,8 @@ export default function App({ Component, pageProps }) {
   const [comicsData, setComicsData] = useState(null);
   const [selectedComic, setSelectedComic] = useState(null);
   const [cartItems, setCartItems] = useState([]);
+  const [usedCoupons, setUsedCoupons] = useState([]);
+  const [couponInformation, setCouponInformation] = useState(null);
 
   useEffect(() => {
     const fetchComicsData = async () => {
@@ -20,10 +22,9 @@ export default function App({ Component, pageProps }) {
       let numbers = [];
 
       while (numbers.length < Math.floor(TOTAL_ITEMS / 10)) {
-        let randomNumber = Math.floor(Math.random() * (TOTAL_ITEMS + 1));
+        let randomNumber = Math.floor(Math.random() * (TOTAL_ITEMS));
         (numbers.includes(randomNumber)) ? null : numbers.push(randomNumber);
       };
-      console.log('numbers', numbers);
 
       let controlVariable = 0;
       let aux = json;
@@ -43,7 +44,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Context.Provider value={{ selectedComic, setSelectedComic, comicsData, setComicsData, cartItems, setCartItems }}>
+      <Context.Provider value={{ selectedComic, setSelectedComic, comicsData, setComicsData, cartItems, setCartItems, usedCoupons, setUsedCoupons, couponInformation, setCouponInformation }}>
         <MenuNavBar />
         <GlobalStyle />
         <Component {...pageProps} />

@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import media from "./media";
+import { FadeInAnimation } from "./homepage";
 
 export const ItemAddedMain = styled.main`
-    padding-top: 100px;
+    animation: ${FadeInAnimation} 0.5s both;
+    position: absolute;
+    width: 100%;
+    padding: 100px 10px 10px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import { MainComicContent, ComicContentSection, RarityInfo, ContentContainer, ComicInfo, BuyInfo } from "../styles/singlecomicpage";
 import { BsFillStarFill } from 'react-icons/bs';
 import { Context } from "../Context";
+import Link from "next/link";
 
 const SingleComicPage = ({ comic }) => {
     const { cartItems, setCartItems } = useContext(Context);
-    const { title, description, dates, format, pageCount, prices, series, thumbnail, creators, comicType } = comic;
-    
+    const { id, title, description, dates, format, pageCount, prices, series, thumbnail, creators, comicType } = comic;
+
     return (
         <MainComicContent>
             <ComicContentSection>
@@ -15,10 +16,10 @@ const SingleComicPage = ({ comic }) => {
                     <ComicInfo>
                         <h1>{title}</h1>
                         <small>
-                            <RarityInfo rarity={(comicType === 'rare') ? 'gold' : 'black'}>Rarity: 
-                            {
-                                comicType === 'rare' ? (<><span> <BsFillStarFill /> </span>Rare</>) : (<span> Common</span>)
-                            }
+                            <RarityInfo rarity={(comicType === 'rare') ? 'gold' : 'black'}>Rarity:
+                                {
+                                    comicType === 'rare' ? (<><span> <BsFillStarFill /> </span>Rare</>) : (<span> Common</span>)
+                                }
                             </RarityInfo>
                         </small>
                         <small><strong>Format: </strong>{format}</small>
@@ -27,7 +28,9 @@ const SingleComicPage = ({ comic }) => {
 
                         <BuyInfo>
                             <span>{prices[0].price ? `$${prices[0].price}` : 'Free'}</span>
-                            <button onClick={() => setCartItems([...cartItems, comic])}>Add to Cart</button>
+                            <Link href={`/cart/${id}`}>
+                                <button onClick={() => setCartItems([...cartItems, comic])}>Add to Cart</button>
+                            </Link>
                         </BuyInfo>
                     </ComicInfo>
                 </ContentContainer>

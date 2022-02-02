@@ -2,9 +2,10 @@ import { useContext, useState } from "react";
 import { ItemLine, QuantityElement, PriceElement, RemoveButton } from "../styles/cartitem";
 import { BsCaretLeftFill, BsCaretRightFill, BsFillStarFill } from 'react-icons/bs';
 import { Context } from "../Context";
+import { validateCoupon } from "../../src/helpers/coupons";
 
 const CartItem = ({ comic, setCartUpdated }) => {
-    const { cartItems, setCartItems } = useContext(Context);
+    const { cartItems, setCartItems, usedCoupons, setUsedCoupons, couponInformation, setCouponInformation } = useContext(Context);
     const [quantity, setQuantity] = useState(cartItems.filter(item => item === comic).length);
     const { thumbnail, title, prices, comicType } = comic;
     const totalItemPrice = prices[0].price ? (prices[0].price * quantity) : 0;
@@ -16,6 +17,7 @@ const CartItem = ({ comic, setCartUpdated }) => {
             setCartItems(aux);
             setQuantity(prevQuantity => prevQuantity - 1);
             setCartUpdated(true);
+            setCouponInformation(validateCoupon(cartItems, usedCoupons));
         };
     };
 
@@ -34,11 +36,15 @@ const CartItem = ({ comic, setCartUpdated }) => {
                         <button onClick={() => {
                             setCartItems([...cartItems, comic]);
                             setQuantity(prevQuantity => prevQuantity + 1);
+                            setCouponInformation(validateCoupon(cartItems, usedCoupons));
                         }}>
                             <BsCaretRightFill />
                         </button>
                     </div>
-                    <RemoveButton onClick={() => setCartItems(cartItems.filter(item => item !== comic))}>Remove</RemoveButton>
+                    <RemoveButton onClick={() => {
+                        setCartItems(cartItems.filter(item => item !== comic));
+                        setCouponInformation(validateCoupon(cartItems, usedCoupons));
+                    }}>Remove</RemoveButton>
                 </QuantityElement>
             </td>
             <td>

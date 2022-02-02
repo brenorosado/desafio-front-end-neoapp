@@ -9,19 +9,19 @@ import { ITEMS_PER_PAGE, TOTAL_ITEMS } from "./_app";
 const Home = () => {
   const [offset, setOffset] = useState(0);
   const { comicsData } = useContext(Context);
-  
+
   let comicsToShow = comicsData ? comicsData.comics.slice(offset, offset + ITEMS_PER_PAGE) : null;
-  
-  return (
+
+  return comicsToShow ? (
     <HomeMain>
       <HomeSection>
-        { 
-          comicsToShow ? comicsToShow.map(item => <Comic comic={item} />) : <Loading/>
+        {
+          comicsToShow.map(item => <Comic comic={item} />)
         }
-        <Pagination limit={ITEMS_PER_PAGE} total={TOTAL_ITEMS} offset={offset} setOffset={setOffset}/>
+        <Pagination limit={ITEMS_PER_PAGE} total={TOTAL_ITEMS} offset={offset} setOffset={setOffset} />
       </HomeSection>
     </HomeMain>
-  );
+  ) : <Loading />;
 };
 
 export default Home;

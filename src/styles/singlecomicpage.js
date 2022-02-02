@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import media from "./media";
+import { FadeInAnimation } from "./homepage";
 
 export const MainComicContent = styled.main`
+    animation: ${FadeInAnimation} 0.5s both;
+    position: absolute;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -45,7 +48,6 @@ export const ContentContainer = styled.div`
     align-items: center;
     margin-bottom: 20px;
     width: 100%;
-    ${'' /* border: 1px solid red; */}
 
     img {
         height: 300px;
@@ -70,6 +72,7 @@ export const RarityInfo = styled.strong`
 
 export const ComicInfo = styled.div`
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -124,8 +127,8 @@ export const BuyInfo = styled.div`
         `}
 
         :hover {
-        background-color: #4BA6FF;
-        transition: 0.3s;
-    }
+            background-color: #4BA6FF;
+            transition: 0.3s;
+        }
     }
 `;

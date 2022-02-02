@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Context } from "../../src/Context";
-import Loading from "../../src/components/Loading";
 import { ItemAddedMain, ItemContainer, ButtonsContainer } from "../../src/styles/itemadded";
 import { BsCheckCircleFill } from 'react-icons/bs';
 import Link from "next/link";
@@ -41,7 +40,7 @@ const ItemAdded = ({ id }) => {
                             <h1>No item added to cart.</h1>
                             <ButtonsContainer>
                                 <Link href="/">
-                                    <button>Continue shoping</button>
+                                    <button>Go shoping</button>
                                 </Link>
                                 <Link href="/cart">
                                     <button>Go to cart</button>
