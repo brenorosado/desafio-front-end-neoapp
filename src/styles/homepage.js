@@ -15,7 +15,7 @@ export const FadeInAnimation = keyframes`
 
 export const HomeMain = styled.main`
     animation: ${FadeInAnimation} 0.5s both;
-    padding: 100px 0px 0px 0px;
+    padding-top: 100px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -31,6 +31,7 @@ export const InputButton = styled.input`
     color: white;
     border: none;
     cursor: pointer;
+    font-weight: bold;
 
     ${media.desktop`
         width: 10%;

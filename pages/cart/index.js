@@ -67,7 +67,8 @@ const Cart = () => {
                                                 <tr>
                                                     <EmptyCartElement>
                                                         <h3>Carrinho vazio.</h3>
-                                                        <Link href="/"><button>Página inicial</button></Link></EmptyCartElement>
+                                                        <Link href="/"><button>Página inicial</button></Link>
+                                                    </EmptyCartElement>
                                                 </tr>
                                             )
                                         }

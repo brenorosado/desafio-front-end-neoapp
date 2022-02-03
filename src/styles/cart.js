@@ -44,6 +44,7 @@ export const EmptyCartElement = styled.td`
         border: none;
         width: 150px;
         cursor: pointer;
+        font-weight: bold;
 
         :hover {
             background-color: #4BA6FF;
@@ -67,7 +68,11 @@ export const PaymentSection = styled.section`
     `}
 
     p {
-        font-size: 25px;
+        font-size: 22px;
+
+        ${media.tablet`
+            font-size: 25px;
+        `}
     }
 
     button {
@@ -77,6 +82,7 @@ export const PaymentSection = styled.section`
         border: none;
         cursor: pointer;
         width: 50%;
+        font-weight: bold;
 
         ${media.desktop`
             width: 100%;
@@ -119,6 +125,7 @@ export const InputButton = styled.input`
     color: white;
     border: none;
     cursor: pointer;
+    font-weight: bold;
 
     :hover {
         background-color: #4BA6FF;
@@ -156,6 +163,7 @@ export const PurchaseMadeContainer = styled.div`
         color: white;
         border: none;
         cursor: pointer;
+        
 
         :hover {
             background-color: #4BA6FF;
@@ -168,4 +176,5 @@ export const ButtonsContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    font-weight: bold;
 `;
