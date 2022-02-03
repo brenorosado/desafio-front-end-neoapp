@@ -16,6 +16,7 @@ export default function App({ Component, pageProps }) {
   const [couponInformation, setCouponInformation] = useState(null);
   const [pageLoading, setPageLoading] = useState(false);
   const [orders, setOrders] = useState([]);
+  const [offset, setOffset] = useState(0);
 
   const router = useRouter();
 
@@ -62,7 +63,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Context.Provider value={{ selectedComic, setSelectedComic, comicsData, setComicsData, cartItems, setCartItems, usedCoupons, setUsedCoupons, couponInformation, setCouponInformation, orders, setOrders }}>
+      <Context.Provider value={{ selectedComic, setSelectedComic, comicsData, setComicsData, cartItems, setCartItems, usedCoupons, setUsedCoupons, couponInformation, setCouponInformation, orders, setOrders, offset, setOffset }}>
         <MenuNavBar />
         <GlobalStyle />
         <Component {...pageProps} />
