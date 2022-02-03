@@ -56,6 +56,8 @@ export const ButtonsContainer = styled.div`
         width: 48%;
         padding: 10px;
         background-color: dodgerblue;
+        font-weight: bold;
+        font-size: 15px;
         color: white;
         border: none;
         cursor: pointer;

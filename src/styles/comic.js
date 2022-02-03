@@ -7,6 +7,20 @@ const productAnimation = keyframes`
     }
 `;
 
+const buttonGradientBackgroundAnimation = keyframes`
+    0% {
+        background-position: 0 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+`;
+
 export const ProductArticle = styled.article`
     width: 100%;
     display: flex;
@@ -15,18 +29,18 @@ export const ProductArticle = styled.article`
     justify-content: space-between;
     width: 100%;
     height: 100%;
+    
 
     a {
         cursor: pointer;
         text-decoration: none;
+        :hover {
+            animation: ${productAnimation} 0.3s ease-out forwards;
+        }
 
         img {
             width: 100%;
             box-shadow: 2px 5px 10px #888888;
-
-            :hover {
-                animation: ${productAnimation} 0.3s ease-out forwards;
-            }
         }
 
         p {
@@ -36,6 +50,9 @@ export const ProductArticle = styled.article`
             color: black;
             text-align: center;
             padding: 6px 0px;
+            height: 40px;
+            margin-bottom: 8px;
+            overflow: hidden;
             
             strong {
                 color: gold;
@@ -51,7 +68,7 @@ export const ProductArticle = styled.article`
 export const ComicInformation = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
     button {
         background-color: dodgerblue;
@@ -60,7 +77,7 @@ export const ComicInformation = styled.div`
         font-size: 12px;
         border: none;
         border-radius: 3px;
-        padding: 5px 10px;
+        padding: 7px 30px;
         cursor: pointer;
 
         ${media.tablet`
@@ -83,4 +100,17 @@ export const ComicInformation = styled.div`
             font-size: 21px;
         `}
     }
+`;
+
+export const RarityInfo = styled.div`
+    animation: ${buttonGradientBackgroundAnimation} 5s ease infinite;
+    width: 100%;
+    background: linear-gradient(-45deg, ${props => props.gradient}) no-repeat;
+    background-size: 300% 300%;
+    color: white;
+    font-weight: bold;
+    padding: 4px 0px 1px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;

@@ -12,6 +12,10 @@ export const NavBar = styled.nav`
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+
+        img {
+            height: 60px;
+        }
         
         a {
             text-decoration: none;

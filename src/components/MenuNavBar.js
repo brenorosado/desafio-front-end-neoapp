@@ -6,7 +6,7 @@ const MenuNavBar = () => {
     return (
         <NavBar>
             <ul>
-                <li><Link href="/"><a>Home</a></Link></li>
+                <li><Link href="/"><a><img src='/spiderman.ico' /></a></Link></li>
                 <li>
                     <Link href="/user"><a><BsPersonFill /></a></Link>
                     <Link href="/cart"><a><BsCartFill /></a></Link>

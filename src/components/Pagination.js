@@ -6,13 +6,22 @@ const Pagination = ({ limit, total, offset, setOffset }) => {
 
     return (
         <PaginationContainer>
-            <button onClick={(e) => offset ? setOffset(offset - limit) : setOffset(0)}><BsCaretLeftFill/></button>
+            <button onClick={(e) => {
+                (offset) && (total < limit) ? setOffset(offset - limit) : setOffset(0);
+                window.scrollTo(0, 0);
+            }}><BsCaretLeftFill /></button>
             <span>{currentPage}</span>
             <button onClick={(e) => {
-                offset >= (total - limit) ? (
-                    setOffset(total - limit) 
-                ) : setOffset(offset + limit);
-            }}><BsCaretRightFill/></button>
+                if (limit > total) {
+                    setOffset(0);
+                    window.scrollTo(0, 0);
+                } else {
+                    (offset >= (total - limit)) ? (
+                        setOffset(total - limit)
+                    ) : setOffset(offset + limit);
+                    window.scrollTo(0, 0);
+                }
+            }}><BsCaretRightFill /></button>
         </PaginationContainer>
     );
 };

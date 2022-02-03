@@ -32,7 +32,7 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     const fetchComicsData = async () => {
-      const res = await fetch('http://localhost:3000/api/comics');
+      const res = await fetch('/api/comics');
       const json = await res.json();
       
       TOTAL_ITEMS = json.count;
@@ -49,13 +49,12 @@ export default function App({ Component, pageProps }) {
       let aux = json;
 
       aux.comics.map(item => {
-        const newItem = numbers.includes(controlVariable) ? Object.assign(item, { comicType: 'rare' }) : Object.assign(item, { comicType: 'common' });
+        const newItem = numbers.includes(controlVariable) ? Object.assign(item, { comicType: 'raro' }) : Object.assign(item, { comicType: 'comum' });
         controlVariable++;
         return newItem;
       });
 
       setComicsData(aux);
-      console.log('comicsData', aux);
     };
 
     fetchComicsData();

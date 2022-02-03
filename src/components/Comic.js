@@ -1,8 +1,7 @@
-import { ProductArticle, ComicInformation, AddedMessageContainer } from "../styles/comic";
-import { BsFillStarFill } from 'react-icons/bs';
+import { ProductArticle, ComicInformation, RarityInfo } from "../styles/comic";
 import Link from "next/link";
 import { Context } from "../Context";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 const Comic = ({ comic }) => {
     let { id, title, thumbnail, prices, comicType } = comic;
@@ -12,18 +11,19 @@ const Comic = ({ comic }) => {
         <ProductArticle key={title}>
             <Link href={`/comic/${id}`} passHref>
                 <a>
+                    <RarityInfo gradient={(comicType === 'raro') ? '#4e3bad, #aa58cc, #6826ad, #8f06bf' : '#482cd2, #5895cc, #2646ad, #0f06bf'}>{(comicType === 'raro') ? 'RARO' : 'COMUM'}</RarityInfo>
                     <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} />
-                    <p><strong>{(comicType === 'rare') ? <BsFillStarFill /> : ''} </strong>{title}</p>
+                    <p>{title}</p>
                 </a>
             </Link>
             <ComicInformation>
-                <span>{prices[0].price ? `$${prices[0].price}` : 'Free'}</span>
+                <span>{prices[0].price ? `$${prices[0].price}` : 'Grátis'}</span>
                 <Link href={`/cart/${id}`}>
-                    <button onClick={() => setCartItems([...cartItems, comic])}>Add to Cart</button>
+                    <button onClick={() => setCartItems([...cartItems, comic])}>Comprar</button>
                 </Link>
             </ComicInformation>
 
-        </ProductArticle >
+        </ProductArticle>
     );
 };
 

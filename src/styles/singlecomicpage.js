@@ -62,14 +62,6 @@ export const ContentContainer = styled.div`
     }
 `;
 
-export const RarityInfo = styled.strong`
-    font-size: 18px;
-
-    span {
-        color: ${props => props.rarity}
-    }
-`;
-
 export const ComicInfo = styled.div`
     height: 100%;
     width: 100%;

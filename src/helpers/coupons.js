@@ -1,12 +1,12 @@
 let COUPONS = [
     {
-        coupon: 'rareHQ',
-        applyOn: 'rare',
+        coupon: 'HQRARA',
+        applyOn: 'raro',
         discount: 10,
     },
     {
-        coupon: 'commonHQ',
-        applyOn: 'common',
+        coupon: 'HQCOMUM',
+        applyOn: 'comum',
         discount: 20,
     }
 ];
@@ -16,15 +16,12 @@ export const validateCoupon = (items, usedCoupons) => {
     let availableCouponsUsed = usedCoupons.filter(item => availableCupons.includes(item));
     let availableCouponsUsedToShow = availableCouponsUsed.filter((item, pos) => availableCouponsUsed.indexOf(item) == pos);
     
-    if (items.length <= 0) return { discount: 0, message: '', availableCouponsUsed: availableCouponsUsedToShow, };
-
-    let message = '';
+    if (items.length <= 0) return { discount: 0, availableCouponsUsed: availableCouponsUsedToShow, };
 
     if((usedCoupons.length > 0) && (!availableCupons.some(element => (usedCoupons.indexOf(element) >= 0))) ) {
-        return { discount: 0, message: 'Invalid coupon.', availableCouponsUsed: availableCouponsUsedToShow, }
+        return { discount: 0, availableCouponsUsed: availableCouponsUsedToShow, }
     };
     
-
     const raresHQs = items.filter(item => item.comicType === COUPONS[0].applyOn);
     const commonsHQs = items.filter(item => item.comicType === COUPONS[1].applyOn);
 
@@ -37,10 +34,6 @@ export const validateCoupon = (items, usedCoupons) => {
         if(raresHQs.length > 0) {
             amountRaresHQsPrice = raresHQs.reduce((soma, item) => soma + item.prices[0].price, 0);
             raresHQsDiscount = amountRaresHQsPrice * COUPONS[0].discount / 100;
-            message = 'Coupon successfully applied';
-            if((usedCoupons[usedCoupons.length - 1] !== COUPONS[0].coupon) && (usedCoupons[usedCoupons.length - 1] !== COUPONS[1].coupon)) message = 'Invalid coupon.';
-        } else {
-            message = 'This coupon only applies to rare comics';
         };
     };
 
@@ -48,16 +41,11 @@ export const validateCoupon = (items, usedCoupons) => {
         if(commonsHQs.length > 0) {
             amountCommonsHQsPrice = commonsHQs.reduce((soma, item) => soma + item.prices[0].price, 0);
             commonsHQsDiscount = amountCommonsHQsPrice * COUPONS[1].discount / 100;
-            message = 'Coupon successfully applied';
-            if((usedCoupons[usedCoupons.length - 1] !== COUPONS[0].coupon) && (usedCoupons[usedCoupons.length - 1] !== COUPONS[1].coupon)) message = 'Invalid coupon.';
-        } else {
-            message = 'This coupon only applies to common comics'
         };
     };
 
     return {
         discount: (raresHQsDiscount + commonsHQsDiscount),
-        message: message,
         availableCouponsUsed: availableCouponsUsedToShow,
     };
 };

@@ -8,7 +8,7 @@ const OrdersSection = () => {
 
     return (
         <SectionOrders>
-            <h1>My orders:</h1>
+            <h1>Meus pedidos:</h1>
             <table>
                 <tbody>
                     {
@@ -44,7 +44,7 @@ const OrdersSection = () => {
                                             </ul>
                                         </td>
                                         <td>
-                                            <span><small>Total price: <strong>${totalOrderPrice.toFixed(2)}</strong></small></span>
+                                            <span><small>Preço total: <strong>${totalOrderPrice.toFixed(2)}</strong></small></span>
                                         </td>
                                     </tr>
                                 )
@@ -52,7 +52,7 @@ const OrdersSection = () => {
                         ) : (
                             <tr>
                                 <td>
-                                    <span>No order has been placed.</span>
+                                    <span>Nenhum pedido foi feito ainda.</span>
                                 </td>
                             </tr>
                         )

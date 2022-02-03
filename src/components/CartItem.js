@@ -22,12 +22,12 @@ const CartItem = ({ comic, setCartUpdated }) => {
     };
 
     return (
-        <ItemLine rarity={(comicType === 'rare') ? 'gold' : 'black'}>
+        <ItemLine>
             <td><img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} /></td>
-            <td><h4>{title} (<small> {comicType === 'rare' ? <BsFillStarFill/> : 'common'} </small>)</h4></td>
+            <td><h4>{title} (<small> {comicType === 'raro' ? 'raro' : 'comum'} </small>)</h4></td>
             <td>
                 <QuantityElement>
-                    Quant:
+                    Qtd:
                     <div>
                         <button onClick={() => subtractUnit()}>
                             <BsCaretLeftFill />
@@ -44,13 +44,13 @@ const CartItem = ({ comic, setCartUpdated }) => {
                     <RemoveButton onClick={() => {
                         setCartItems(cartItems.filter(item => item !== comic));
                         setCouponInformation(validateCoupon(cartItems, usedCoupons));
-                    }}>Remove</RemoveButton>
+                    }}>Remover</RemoveButton>
                 </QuantityElement>
             </td>
             <td>
                 <PriceElement>
-                    Price:
-                    <span>{totalItemPrice ? `$${totalItemPrice.toFixed(2)}` : 'Free'}</span>
+                    Preço:
+                    <span>{totalItemPrice ? `$${totalItemPrice.toFixed(2)}` : 'Grátis'}</span>
                 </PriceElement>
             </td>
         </ItemLine>

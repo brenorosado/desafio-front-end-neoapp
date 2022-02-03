@@ -21,11 +21,50 @@ export const HomeMain = styled.main`
     justify-content: center;
 `;
 
+export const InputField = styled.input`
+    width: 90%
+`;
+
+export const InputButton = styled.input`
+    width: 10%;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    :hover {
+        background-color: #4BA6FF;
+        transition: 0.3s;
+    }
+`;
+
 export const HomeSection = styled.section`
     display: grid;
     grid-template-columns: repeat(2, 40%);
     justify-content: center;
     grid-gap: 25px;
+
+    form {
+        width: 100%;
+        display: flex;
+        grid-column: 1 / 3;
+
+        input {
+            padding: 10px;
+        }
+
+        ${media.tablet`
+            grid-column: 1 / 4;
+        `}
+
+        ${media.desktop`
+            grid-column: 1 / 5;
+        `}
+
+        ${media.widescreen`
+            grid-column: 1 / 6;
+        `}
+    }
 
     ${media.tablet`
         grid-template-columns: repeat(3, 200px)

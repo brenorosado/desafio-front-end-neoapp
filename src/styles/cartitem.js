@@ -9,7 +9,6 @@ export const ItemLine = styled.tr`
             small {
                 font-size: 14px;
                 font-weight: normal;
-                color: ${props => props.rarity};
             }
         }
 

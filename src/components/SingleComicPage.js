@@ -15,21 +15,17 @@ const SingleComicPage = ({ comic }) => {
                     <img src={`${thumbnail.path}.${thumbnail.extension}`} />
                     <ComicInfo>
                         <h1>{title}</h1>
-                        <small>
-                            <RarityInfo rarity={(comicType === 'rare') ? 'gold' : 'black'}>Rarity:
-                                {
-                                    comicType === 'rare' ? (<><span> <BsFillStarFill /> </span>Rare</>) : (<span> Common</span>)
-                                }
-                            </RarityInfo>
+                        <small><strong>Raridade: </strong>
+                                {comicType === 'raro' ? (<span>Raro</span>) : (<span>Comum</span>)}
                         </small>
-                        <small><strong>Format: </strong>{format}</small>
-                        <small><strong>Published: </strong> {dates[0].date.split("T")[0]}</small>
+                        <small><strong>Formato: </strong>{format}</small>
+                        <small><strong>Publicado: </strong> {dates[0].date.split("T")[0]}</small>
 
 
                         <BuyInfo>
                             <span>{prices[0].price ? `$${prices[0].price}` : 'Free'}</span>
                             <Link href={`/cart/${id}`}>
-                                <button onClick={() => setCartItems([...cartItems, comic])}>Add to Cart</button>
+                                <button onClick={() => setCartItems([...cartItems, comic])}>Comprar</button>
                             </Link>
                         </BuyInfo>
                     </ComicInfo>
@@ -37,19 +33,19 @@ const SingleComicPage = ({ comic }) => {
                 <table>
                     <tbody>
                         <tr>
-                            <td><strong>Description</strong></td>
+                            <td><strong>Descrição</strong></td>
                             <td><p>{description ? description : 'Unavailable'}</p></td>
                         </tr>
                         <tr>
-                            <td><strong>Series</strong></td>
+                            <td><strong>Série</strong></td>
                             <td><p>{series.name}</p></td>
                         </tr>
                         <tr>
-                            <td><strong>Pages</strong></td>
+                            <td><strong>Páginas</strong></td>
                             <td><p>{pageCount}</p></td>
                         </tr>
                         <tr>
-                            <td><strong>Creators</strong></td>
+                            <td><strong>Criadores</strong></td>
                             <td>
                                 <ul>
                                     {
