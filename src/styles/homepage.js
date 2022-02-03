@@ -26,11 +26,15 @@ export const InputField = styled.input`
 `;
 
 export const InputButton = styled.input`
-    width: 10%;
+    width: 20%;
     background-color: dodgerblue;
     color: white;
     border: none;
     cursor: pointer;
+
+    ${media.desktop`
+        width: 10%;
+    `}
 
     :hover {
         background-color: #4BA6FF;
@@ -40,7 +44,7 @@ export const InputButton = styled.input`
 
 export const HomeSection = styled.section`
     display: grid;
-    grid-template-columns: repeat(2, 40%);
+    grid-template-columns: repeat(2, 200px);
     justify-content: center;
     grid-gap: 25px;
 

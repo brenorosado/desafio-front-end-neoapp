@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { MainComicContent, ComicContentSection, RarityInfo, ContentContainer, ComicInfo, BuyInfo } from "../styles/singlecomicpage";
-import { BsFillStarFill } from 'react-icons/bs';
+import { MainComicContent, ComicContentSection, ContentContainer, ComicInfo, BuyInfo } from "../styles/singlecomicpage";
 import { Context } from "../Context";
 import Link from "next/link";
 

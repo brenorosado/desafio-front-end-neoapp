@@ -114,7 +114,7 @@ export const BuyInfo = styled.div`
             width: 60%;
         `}
 
-        ${media.uhd`
+        ${media.widescreen`
             width: 40%;
         `}
 

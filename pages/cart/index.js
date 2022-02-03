@@ -105,7 +105,7 @@ const Cart = () => {
                                             }
                                         </span>
                                     ) : (
-                                        <span>Nenhum cupon válido foi utilizado ainda.</span>
+                                        <span>Nenhum cupom válido foi utilizado ainda.</span>
                                     )
                                 }
                             </CouponSection>

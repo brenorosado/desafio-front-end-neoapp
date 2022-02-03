@@ -11,7 +11,7 @@ export const SectionOrders = styled.section`
         width: 50%;
     `}
 
-    ${media.uhd`
+    ${media.widescreen`
         width: 40%;
     `}
 

@@ -39,7 +39,6 @@ export const ProductArticle = styled.article`
         }
 
         img {
-            width: 100%;
             box-shadow: 2px 5px 10px #888888;
         }
 
@@ -69,6 +68,7 @@ export const ComicInformation = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     button {
         background-color: dodgerblue;
@@ -77,7 +77,7 @@ export const ComicInformation = styled.div`
         font-size: 12px;
         border: none;
         border-radius: 3px;
-        padding: 7px 30px;
+        padding: 7px 20px;
         cursor: pointer;
 
         ${media.tablet`
