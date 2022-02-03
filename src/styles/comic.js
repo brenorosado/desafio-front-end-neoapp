@@ -77,7 +77,8 @@ export const ComicInformation = styled.div`
         font-size: 12px;
         border: none;
         border-radius: 3px;
-        padding: 7px 20px;
+        padding: 7px 0px;
+        width: 50%;
         cursor: pointer;
 
         ${media.tablet`
@@ -92,7 +93,7 @@ export const ComicInformation = styled.div`
 
     span {
         font-weight: bold;
-        font-size: 18px;
+        font-size: 15px;
         color: green;
         font-family: sans-serif;
 

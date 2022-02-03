@@ -22,7 +22,7 @@ const SingleComicPage = ({ comic }) => {
 
 
                         <BuyInfo>
-                            <span>{prices[0].price ? `$${prices[0].price}` : 'Free'}</span>
+                            <span>{prices[0].price ? `$${prices[0].price}` : 'Grátis'}</span>
                             <Link href={`/cart/${id}`}>
                                 <button onClick={() => setCartItems([...cartItems, comic])}>Comprar</button>
                             </Link>
@@ -33,7 +33,7 @@ const SingleComicPage = ({ comic }) => {
                     <tbody>
                         <tr>
                             <td><strong>Descrição</strong></td>
-                            <td><p>{description ? description : 'Unavailable'}</p></td>
+                            <td><p>{description ? description : 'Indisponível'}</p></td>
                         </tr>
                         <tr>
                             <td><strong>Série</strong></td>

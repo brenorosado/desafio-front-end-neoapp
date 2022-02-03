@@ -15,7 +15,7 @@ export const FadeInAnimation = keyframes`
 
 export const HomeMain = styled.main`
     animation: ${FadeInAnimation} 0.5s both;
-    padding-top: 100px;
+    padding: 100px 0px 0px 0px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -44,9 +44,9 @@ export const InputButton = styled.input`
 
 export const HomeSection = styled.section`
     display: grid;
-    grid-template-columns: repeat(2, 200px);
+    grid-template-columns: repeat(2, 150px);
     justify-content: center;
-    grid-gap: 25px;
+    grid-gap: 15px;
 
     form {
         width: 100%;
@@ -71,7 +71,8 @@ export const HomeSection = styled.section`
     }
 
     ${media.tablet`
-        grid-template-columns: repeat(3, 200px)
+        grid-template-columns: repeat(3, 200px);
+        grid-gap: 25px;
     `}
 
     ${media.desktop`

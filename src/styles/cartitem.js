@@ -6,6 +6,13 @@ export const ItemLine = styled.tr`
         padding: 10px;
 
         h4 {
+            min-width: 40px;
+            font-size: 13px;
+
+            ${media.tablet`
+                font-size: 16px;
+            `}
+
             small {
                 font-size: 14px;
                 font-weight: normal;
@@ -13,7 +20,7 @@ export const ItemLine = styled.tr`
         }
 
         img {
-            height: 150px;
+            height: 110px;
 
             ${media.desktop`
                 height: 174px;
