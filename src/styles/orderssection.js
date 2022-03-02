@@ -44,10 +44,6 @@ export const SectionOrders = styled.section`
                             align-items: center;
                             height: 105px;
 
-                            img {
-                                height: 100px;
-                            }
-
                             span {
                                 margin-left: 5px;
                             }

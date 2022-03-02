@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Context } from "../Context";
 import { SectionOrders } from "../styles/orderssection";
 import Link from "next/link";
+import Image from "next/image";
 
 const OrdersSection = () => {
     const { orders } = useContext(Context);
@@ -32,7 +33,7 @@ const OrdersSection = () => {
                                                                 <li>
                                                                     <Link href={`/comic/${id}`}>
                                                                         <>
-                                                                            <img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} />
+                                                                            <Image src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} height={100} width={66.66}/>
                                                                             <span><small>({amonutOfSameItem}) {title}</small></span>
                                                                         </>
                                                                     </Link>

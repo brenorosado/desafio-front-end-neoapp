@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { ItemLine, QuantityElement, PriceElement, RemoveButton } from "../styles/cartitem";
-import { BsCaretLeftFill, BsCaretRightFill, BsFillStarFill } from 'react-icons/bs';
+import { BsCaretLeftFill, BsCaretRightFill } from 'react-icons/bs';
 import { Context } from "../Context";
 import { validateCoupon } from "../../src/helpers/coupons";
+import Image from "next/image";
 
 const CartItem = ({ comic, setCartUpdated }) => {
     const { cartItems, setCartItems, usedCoupons, setUsedCoupons, couponInformation, setCouponInformation } = useContext(Context);
@@ -23,7 +24,7 @@ const CartItem = ({ comic, setCartUpdated }) => {
 
     return (
         <ItemLine>
-            <td><img src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} /></td>
+            <td><Image src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} height={174} width={116} /></td>
             <td><h4>{title} (<small> {comicType === 'raro' ? 'raro' : 'comum'} </small>)</h4></td>
             <td>
                 <QuantityElement>

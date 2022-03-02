@@ -48,18 +48,6 @@ export const ContentContainer = styled.div`
     align-items: center;
     margin-bottom: 20px;
     width: 100%;
-
-    img {
-        height: 300px;
-
-        ${media.tablet`
-            height: 400px;
-        `}
-
-        ${media.desktop`
-            height: 500px;
-        `}
-    }
 `;
 
 export const ComicInfo = styled.div`

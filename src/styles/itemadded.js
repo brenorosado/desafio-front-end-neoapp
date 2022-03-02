@@ -42,7 +42,6 @@ export const ItemContainer = styled.article`
     margin-bottom: 10px;
 
     img {
-        height: 150px;
         margin-right: 10px;
     }
 `;

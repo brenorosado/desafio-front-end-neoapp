@@ -18,14 +18,6 @@ export const ItemLine = styled.tr`
                 font-weight: normal;
             }
         }
-
-        img {
-            height: 110px;
-
-            ${media.desktop`
-                height: 174px;
-            `}
-        }
     }
 `;
 

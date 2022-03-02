@@ -4,6 +4,7 @@ import { Context } from "../../src/Context";
 import { ItemAddedMain, ItemContainer, ButtonsContainer } from "../../src/styles/itemadded";
 import { BsCheckCircleFill } from 'react-icons/bs';
 import Link from "next/link";
+import Image from "next/image";
 
 const ItemAdded = ({ id }) => {
     const { cartItems } = useContext(Context);
@@ -30,7 +31,7 @@ const ItemAdded = ({ id }) => {
                             <>
                                 <h1><strong><BsCheckCircleFill /></strong> Item adicionado ao carrinho.</h1>
                                 <ItemContainer>
-                                    <img src={`${comicAdded.thumbnail.path}.${comicAdded.thumbnail.extension}`} />
+                                    <Image src={`${comicAdded.thumbnail.path}.${comicAdded.thumbnail.extension}`} height={150} width={100}/>
                                     <span>{comicAdded.title}</span>
                                 </ItemContainer>
                                 <ButtonsContainer>
@@ -44,13 +45,13 @@ const ItemAdded = ({ id }) => {
                             </>
                         ) : (
                             <>
-                                <h1>No item added to cart.</h1>
+                                <h1>Nenhuma HQ foi adicionada ao carrinho.</h1>
                                 <ButtonsContainer>
                                     <Link href="/">
-                                        <button>Go shoping</button>
+                                        <button>Continuar comprando</button>
                                     </Link>
                                     <Link href="/cart">
-                                        <button>Go to cart</button>
+                                        <button>Ir para o carrinho</button>
                                     </Link>
                                 </ButtonsContainer>
                             </>

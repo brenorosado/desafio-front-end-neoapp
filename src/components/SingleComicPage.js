@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { MainComicContent, ComicContentSection, ContentContainer, ComicInfo, BuyInfo } from "../styles/singlecomicpage";
 import { Context } from "../Context";
 import Link from "next/link";
+import Image from "next/image";
 
 const SingleComicPage = ({ comic }) => {
     const { cartItems, setCartItems } = useContext(Context);
@@ -11,7 +12,7 @@ const SingleComicPage = ({ comic }) => {
         <MainComicContent>
             <ComicContentSection>
                 <ContentContainer>
-                    <img src={`${thumbnail.path}.${thumbnail.extension}`} />
+                    <Image src={`${thumbnail.path}.${thumbnail.extension}`} alt={title} height={500} width={333.32}/>
                     <ComicInfo>
                         <h1>{title}</h1>
                         <small><strong>Raridade: </strong>
