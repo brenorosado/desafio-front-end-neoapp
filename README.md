@@ -4,12 +4,15 @@
 # Deploy:
 - https://marvelcomics-desafio-brenorosado.vercel.app/
 
+# API:
+- https://developer.marvel.com/
+
 # Stacks utilizadas: 
 - Next/React
 - Styled-components
 
-# API:
-- https://developer.marvel.com/
+# Instruções
+- Clone esse repositório, execute `npm install` para baixar as dependências da aplicação. Em seguida, execute `npm run dev` para rodar a aplicação. O projeto irá rodar em `http://localhost:3000`;
 
 # Passos da criação:
 - 1_ Criar a parte de API da aplicação
